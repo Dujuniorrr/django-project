@@ -10,3 +10,4 @@ class ActivityForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['field'] = forms.ModelChoiceField(
             queryset=Field.objects.all())
+        

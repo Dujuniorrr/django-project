@@ -20,7 +20,7 @@ class ActivityCreate(CreateView):
     template_name = 'records/form.html'
     success_url = reverse_lazy('index')
     
-################ UDATE
+################ UPDATE
 
 class FieldUpdate(UpdateView):
     model = Field
@@ -35,12 +35,12 @@ class ActivityUpdate(UpdateView):
     template_name = 'records/form_update.html'
     success_url = reverse_lazy('index')
     
-    def form_valid(self, form):
-        # Adiciona um valor ao campo campo4 antes de salvar
-        field = Field.objects.get(id = form.instance.field.pk )
-        field.name = "Campo baum demaize"
-        field.save()
-        return super().form_valid(form)
+    # def form_valid(self, form):
+    #     # Adiciona um valor ao campo campo4 antes de salvar
+    #     field = Field.objects.get(id = form.instance.field.pk )
+    #     field.name = "Campo baum demaize"
+    #     field.save()
+    #     return super().form_valid(form)
     
 
 ################ DELETE
