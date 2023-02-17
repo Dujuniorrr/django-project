@@ -52,6 +52,8 @@ def FieldDelete(request, pk):
         field.delete()
         return redirect('/campos/')
     else:
+        context['message'] = "Não é possivel deletar esse campo. Existem atividade dependentes dele."
+        context['url_path'] = "list-field"
         return render(request, 'records/error_message.html', context)
         
 class ActivityDelete(DeleteView):

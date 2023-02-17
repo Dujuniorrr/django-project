@@ -1,0 +1,19 @@
+{% extends 'pages/base.html' %}
+
+{% load static %}
+
+{% block title %}
+<title>Erro</title>
+{% endblock%}
+
+{% block content %}
+    <div class="m-2">
+        <h3>Não é possivel deletar.</h3>
+        <p> {{ message }}</p>
+    </div>
+    
+    <hr>
+
+    <a href="{% url url_path %}" class="btn btn-primary">Voltar</a>
+{% endblock%}
+
