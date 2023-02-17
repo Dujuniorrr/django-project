@@ -32,28 +32,28 @@
       <div class="collapse navbar-collapse mt-2 mt-lg-0" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active text-light fw-bold" aria-current="page" href="{% url 'index' %}"><i class="fa-solid fa-house"></i> Inicio</a>
+            <a class="nav-link active text-light fw-bold p-2" aria-current="page" href="{% url 'index' %}"><i class="fa-solid fa-house"></i> Inicio</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="text-light nav-link fw-bold dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="text-light nav-link fw-bold dropdown-toggle p-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="fa-solid fa-circle-plus"></i> Cadastros
             </a>
             <ul class="dropdown-menu bg-success" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item text-light fw-bold" href="#">Empresa</a></li>
-              <li><a class="dropdown-item text-light fw-bold" href="#">Responsavel Jurídico</a></li>
+              <li><a class="dropdown-item text-light fw-bold" href="{% url 'list-field' %}">Campos</a></li>
+              <li><a class="dropdown-item text-light fw-bold" href="#">Atividades</a></li>
               <li><a class="dropdown-item text-light fw-bold" href="#">Setor</a></li>
               <li><a class="dropdown-item text-light fw-bold" href="#">Residuos</a></li>
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light fw-bold" href="{% url 'about' %}"><i class="fa-solid fa-circle-info"></i> Sobre</a>
+            <a class="nav-link text-light fw-bold p-2" href="{% url 'about' %}"><i class="fa-solid fa-circle-info"></i> Sobre</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light fw-bold" href="#"><i class="fa-solid fa-circle-question"></i> Ajuda</a>
+            <a class="nav-link text-light fw-bold p-2" href="#"><i class="fa-solid fa-circle-question"></i> Ajuda</a>
           </li>
         </ul>
         <div class="nav-item d-lg-flex d-block justify-content-lg-end nav-item dropdown">
-            <a class="text-light nav-link fw-bold dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="text-light nav-link fw-bold dropdown-toggle p-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="fa-solid fa-circle-user"></i> Usuários
             </a>
             <ul class="dropdown-menu bg-success" aria-labelledby="navbarDropdown">
@@ -68,22 +68,21 @@
   </nav>
   {% endblock %}
 
-  <div class="container">
+  <div class="container mt-3 mb-3 overflow-scroll" style="max-height: 24em;">
    
   {% block content %} 
 
   {% endblock %}
 
-    </div>
+</div>
 
   {% block footer %} 
-  <footer class="text-center text-lg-start bg-light text-muted col-12">
-    <section class="p-2 bg-success">
+  <footer class="fixed-bottom text-center text-lg-start bg-light text-muted col-12">
+    <section class="p-2 bg-success " style="height: 165px;">
       <div class="container text-center text-md-start">
         <div class="row mt-3">
-  
-          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-            <h6 class="text-light fw-bold mb-4">
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-2">
+            <h6 class="text-light fw-bold mb-2">
               Municipio
             </h6>
             <p>
@@ -97,8 +96,8 @@
             </p>
           </div>
   
-          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-            <h6 class="text-light fw-bold mb-4">
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-2">
+            <h6 class="text-light fw-bold mb-2">
               Serviços
             </h6>
             <p>
@@ -112,8 +111,8 @@
             </p>
           </div>
 
-          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-            <h6 class="text-light fw-bold mb-4">
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-2">
+            <h6 class="text-light fw-bold mb-2">
               Acesso Rápido
             </h6>
             <p>
@@ -123,7 +122,7 @@
               <a href="#!" class="text-light text-decoration-none">Link 2</a>
             </p>
             <p>
-              <a href="#!" class="text-light text-decoration-none">Link 3</a>
+              <a href="#" class="text-light text-decoration-none">Link 3</a>
             </p>
           </div>
         </div>

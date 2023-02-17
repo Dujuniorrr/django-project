@@ -1,0 +1,26 @@
+{% extends 'pages/base.html' %}
+
+{% load static %}
+
+{% block title %}
+<title>Cadastro</title>
+{% endblock%}
+
+{% block content %}
+    <div class="m-2">
+        <h3>Cadastro</h3>
+        <p>Preencha todos os campos.</p>
+    </div>
+    
+    <hr>
+
+    <form class="m-2" method="POST" action="">
+
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit" class="btn btn-primary" >Cadastrar</button>
+    </form>
+{% endblock%}
+

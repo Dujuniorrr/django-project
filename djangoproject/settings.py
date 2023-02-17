@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "pages.apps.PagesConfig",
+    "records.apps.RecordsConfig",
     #"nome_do_app.apps.NomeDoAppConfig",
 ]
 
