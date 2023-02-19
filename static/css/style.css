@@ -1,3 +1,6 @@
+*{
+    font-size: 0.995em;
+}
 body{
     background-color: rgb(235, 217, 217);
 }
@@ -5,4 +8,15 @@ body{
     border-radius: 5px;
     background-color: #116b41;
 }
-
+form .row div{
+    display: inline-block;
+    width: 50%;
+}
+@media (max-width: 700px) {
+    form .row div{
+        width: 100%;
+    }
+}
+#div_id_password, #div_id_username, .row .alert{
+    width: 100%;
+}

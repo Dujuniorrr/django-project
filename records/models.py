@@ -7,9 +7,13 @@ class Field(models.Model):
     
     def __str__(self):
         return "{} ({})".format(self.name, self.description)
+    
+    class Meta:
+        verbose_name = 'Campo'
+        ordering = ['name']
 
 class Activity(models.Model):
-    number = models.IntegerField(verbose_name="Número")
+    number = models.IntegerField(verbose_name="Número", unique=True)
     points = models.DecimalField(verbose_name="Pontos", decimal_places=1, max_digits=4)
     details = models.CharField(max_length=100, verbose_name="Detalhes")
     description = models.CharField(max_length=150, verbose_name='Descrição')
@@ -18,6 +22,10 @@ class Activity(models.Model):
     def __str__(self):
         return "{} - {} ({})".format(self.number, self.description, self.field.name)
     
+    class Meta:
+        verbose_name = 'Atividade'
+        ordering = ['number']
+        
 # class Receipt(models.Model):
 #     quantity = models.DecimalField(verbose_name="Quantidade", decimal_places=1, max_digits=4)
 #     date = models.DateField(verbose_name="Data")

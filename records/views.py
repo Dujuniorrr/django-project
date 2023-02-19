@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from django.urls import reverse_lazy
+
+from records.forms import ActivityForm
 from .models import Activity, Field
 from django.shortcuts import redirect
 
@@ -29,8 +31,8 @@ class FieldUpdate(UpdateView):
     
 class ActivityUpdate(UpdateView):
     model = Activity
-    fields = ['number', 'points', 'details', 'description',  'field']
-    # form_class = ActivityForm
+    # fields = ['number', 'points', 'details', 'description',  'field']
+    form_class = ActivityForm
     template_name = 'records/form_update.html'
     success_url = reverse_lazy('list-activity')
     
