@@ -17,3 +17,12 @@ class Activity(models.Model):
     
     def __str__(self):
         return "{} - {} ({})".format(self.number, self.description, self.field.name)
+    
+# class Receipt(models.Model):
+#     quantity = models.DecimalField(verbose_name="Quantidade", decimal_places=1, max_digits=4)
+#     date = models.DateField(verbose_name="Data")
+#     activity = models.ForeignKey(Activity, on_delete=models.PROTECT, verbose_name="Atividade")
+    
+# class Validation(models.Model):
+    
+    

@@ -40,7 +40,7 @@
             </a>
             <ul class="dropdown-menu bg-success" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item text-light fw-bold" href="{% url 'list-field' %}">Campos</a></li>
-              <li><a class="dropdown-item text-light fw-bold" href="#">Atividades</a></li>
+              <li><a class="dropdown-item text-light fw-bold" href="{% url 'list-activity' %}">Atividades</a></li>
               <li><a class="dropdown-item text-light fw-bold" href="#">Setor</a></li>
               <li><a class="dropdown-item text-light fw-bold" href="#">Residuos</a></li>
             </ul>
@@ -68,7 +68,7 @@
   </nav>
   {% endblock %}
 
-  <div class="container mt-3 mb-3 overflow-scroll" style="max-height: 24em;">
+  <div class="container mt-3 mb-3">
    
   {% block content %} 
 

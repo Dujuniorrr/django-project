@@ -4,7 +4,6 @@ from django.views.generic.list import ListView
 from django.urls import reverse_lazy
 from .models import Activity, Field
 from django.shortcuts import redirect
-from .forms import ActivityForm
 
 ################ CREATE
 
@@ -18,7 +17,7 @@ class ActivityCreate(CreateView):
     model = Activity
     fields = ['number', 'points', 'details', 'description', 'field']
     template_name = 'records/form.html'
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('list-activity')
     
 ################ UPDATE
 
@@ -30,19 +29,11 @@ class FieldUpdate(UpdateView):
     
 class ActivityUpdate(UpdateView):
     model = Activity
-    # fields = ['number', 'points', 'details', 'description',  'field']
-    form_class = ActivityForm
+    fields = ['number', 'points', 'details', 'description',  'field']
+    # form_class = ActivityForm
     template_name = 'records/form_update.html'
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('list-activity')
     
-    # def form_valid(self, form):
-    #     # Adiciona um valor ao campo campo4 antes de salvar
-    #     field = Field.objects.get(id = form.instance.field.pk )
-    #     field.name = "Campo baum demaize"
-    #     field.save()
-    #     return super().form_valid(form)
-    
-
 ################ DELETE
 def FieldDelete(request, pk):
     context = {}
