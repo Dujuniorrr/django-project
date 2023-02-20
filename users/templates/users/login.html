@@ -1,0 +1,49 @@
+{% extends 'pages/base.html' %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}" >
+{% endblock %}
+
+{% block title %}
+<title>Login</title>
+{% endblock%}
+
+
+{% block navbar %}
+{% endblock%}
+
+{% block content %}
+{% if request.user.is_authenticated %}
+    <h3>
+        Ação não permitida.
+    </h3>
+    <p>Você não faz parte do grupo que pode utilizar essa funcionalidade</p>
+    <hr>
+    <a onclick="history.back()" class="btn btn-primary">Voltar</a>
+{%else%}
+    <div class="m-auto mb w-75 p-2 rounded-4">
+        <div class="m-2">
+            <h3>Login</h3>
+            <p>Preencha os campos para entrar no sistema.</p>
+        </div>
+        
+        <hr>
+        
+        <form class="m-2" method="POST" action="">
+    
+            {% csrf_token %}
+    
+            <div class="row">
+                {{ form|crispy }}
+            </div>
+    
+            <button type="submit" class="btn btn-primary" >Entrar</button>
+        </form>
+       </div>
+{% endif %}
+{% endblock%}
+

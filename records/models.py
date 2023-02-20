@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
 class Field(models.Model):
     name = models.CharField(max_length=50, verbose_name='Nome')
@@ -18,6 +18,7 @@ class Activity(models.Model):
     details = models.CharField(max_length=100, verbose_name="Detalhes")
     description = models.CharField(max_length=150, verbose_name='Descrição')
     field = models.ForeignKey(Field, on_delete= models.PROTECT, verbose_name='Campo')
+    user = models.ForeignKey(User, on_delete=models.PROTECT, verbose_name="Usuário")
     
     def __str__(self):
         return "{} - {} ({})".format(self.number, self.description, self.field.name)
