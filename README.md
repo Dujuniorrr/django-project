@@ -1,0 +1,1 @@
+Incomplete project. Only for study of django concepts.
