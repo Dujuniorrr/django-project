@@ -18,6 +18,7 @@ class Activity(models.Model):
     details = models.CharField(max_length=100, verbose_name="Detalhes")
     description = models.CharField(max_length=150, verbose_name='Descrição')
     field = models.ForeignKey(Field, on_delete= models.PROTECT, verbose_name='Campo')
+    file = models.FileField(upload_to='pdf/', verbose_name="Arquivo")
     user = models.ForeignKey(User, on_delete=models.PROTECT, verbose_name="Usuário")
     
     def __str__(self):

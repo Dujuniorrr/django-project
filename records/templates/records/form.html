@@ -16,7 +16,11 @@
     
     <hr>
 
-    <form class="m-2" method="POST" action="">
+    <form class="m-2" method="POST" action="" 
+    {%if exist_file %}
+    enctype="multipart/form-data"
+    {% endif %}
+    >
 
         {% csrf_token %}
 

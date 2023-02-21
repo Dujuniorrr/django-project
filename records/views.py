@@ -30,7 +30,7 @@ class FieldCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
 class ActivityCreate(LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
     model = Activity
-    fields = ['number', 'points', 'details', 'description', 'field']
+    fields = ['number', 'points', 'details', 'description', 'field', 'file']
     template_name = 'records/form.html'
     success_url = reverse_lazy('list-activity')
     
@@ -42,6 +42,7 @@ class ActivityCreate(LoginRequiredMixin, CreateView):
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
         context['header'] = 'Cadastro de Atividades'
+        context['exist_file'] = True
         return context
     
 ################ UPDATE
