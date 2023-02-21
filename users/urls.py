@@ -1,5 +1,6 @@
 from django.urls import path
 from django.contrib.auth import views as auth_views
+from .views import UserCreate
 
 urlpatterns = [
     # path('endereço/', view.as_view(), name='nome-da-url'), 
@@ -7,5 +8,5 @@ urlpatterns = [
         template_name = "users/login.html"    
     ), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
-    
+    path('cadastrar/', UserCreate.as_view(), name='add-user'),
 ]

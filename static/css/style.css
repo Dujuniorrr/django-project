@@ -17,6 +17,6 @@ form .row div{
         width: 100%;
     }
 }
-#div_id_password, #div_id_username, .row .alert{
+#div_id_password, #div_id_username, #div_id_email, #div_id_password1, #div_id_password2, #hint_id_password1, #hint_id_password2 .row .alert{
     width: 100%;
 }

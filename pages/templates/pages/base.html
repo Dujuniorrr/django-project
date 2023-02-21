@@ -69,8 +69,11 @@
             </ul>
             {% else %}
             <a class="text-light nav-link fw-bold p-2" href="{% url 'login' %}" id="navbarDropdown" role="button" >
-              <i class="fa-solid fa-right-to-bracket" ></i> Entrar
+              <i class="fa-solid fa-right-to-bracket" ></i> Login
           </a>
+          <a class="text-light nav-link fw-bold p-2" href="{% url 'add-user' %}" id="navbarDropdown" role="button" >
+            <i class="fa-solid fa-user-plus"></i> Registrar
+        </a>
             {% endif %}
         </div>
        
