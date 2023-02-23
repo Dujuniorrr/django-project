@@ -1,5 +1,4 @@
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import TemplateView
 from django.views.generic.list import ListView
@@ -8,7 +7,6 @@ from records.forms import ActivityForm
 from .models import Activity, Field
 from django.shortcuts import redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.decorators import login_required
 from braces.views import GroupRequiredMixin
 from django.shortcuts import get_object_or_404
 
