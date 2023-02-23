@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "crispy_forms",
     "crispy_bootstrap5",
+    'django_cleanup.apps.CleanupConfig',
     "pages.apps.PagesConfig",
     "records.apps.RecordsConfig",
     "users.apps.UsersConfig",
@@ -126,7 +127,7 @@ STATICFILES_DIRS = [
 ]
 
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'uploads')
-
+MEDIA_URL = "/uploads/"
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 

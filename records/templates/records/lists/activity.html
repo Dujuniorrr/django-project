@@ -16,50 +16,94 @@
 
     <div class="table-responsive">
 
-        <table class="table table-striped">
-            <th>
-                Número
-            </th>
-            <th>
-                Pontos
-            </th>
-            <th>
-                Campo
-            </th>
-            <th>
-                Servidor
-            </th>
-            <th>
-                Opções
-            </th>
+        <table class="table table-striped" id="table-list">
+            <thead>
+                <th>
+                    Número
+                </th>
+                <th>
+                    Pontos
+                </th>
+                <th>
+                    Campo
+                </th>
+                <th>
+                    Servidor
+                </th>
+                <th>
+                    Arquivo
+                </th>
+                <th>
+                    Opções
+                </th>
+            </thead>
         
+            <tbody>
             {% for activity in object_list %}
-
-            <tr>
-               <td>
-                    {{activity.number}}
-               </td>
-               <td>
-                    {{ activity.points}}
-               </td>
-               <td>
-                    {{ activity.field.name }}
-               </td>
-               <td>
-                {{ activity.user }}
-                </td>
-               <td>
-                    <a href="{% url 'edit-activity' activity.pk %}" class="btn btn-warning"> <i class="fa-solid fa-pen-to-square"></i></a>
-                    <a href="{% url 'delete-activity' activity.pk %}" class="btn btn-danger"> <i class="fa-solid fa-trash"></i> </a>
-               </td>
-            </tr>
-    
-            {% empty %}
-            <tr>
-                <td colspan="3"> Não há nenhum registro até o momento </td>
-            </tr>
-            {% endfor %}
+                <tr>
+                    <td>
+                         {{activity.number}}
+                    </td>
+                    <td>
+                         {{ activity.points}}
+                    </td>
+                    <td>
+                         {{ activity.field.name }}
+                    </td>
+                    <td>
+                     {{ activity.user }}
+                     </td>
+                     <td>
+                        <a href=" {{ activity.file.url }}">  Visualizar </a>
+                     </td>
+                    <td>
+                         <a href="{% url 'edit-activity' activity.pk %}" class="btn btn-warning"> <i class="fa-solid fa-pen-to-square"></i></a>
+                         <a href="{% url 'delete-activity' activity.pk %}" class="btn btn-danger"> <i class="fa-solid fa-trash"></i> </a>
+                    </td>
+                 </tr>
+         
+                 
+                 {% endfor %}
+            </tbody>
         </table> 
     </div>
+{% block scripts %}
+<script>
+    $(document).ready(function(){
+        $('#table-list').DataTable({
+            'pageLength': 10,
+            //'lengthMenu': [[10, 20, 25, 50, -1], [10, 20, 25, 50, 'All']],
+            responsive: true,
+            // "bSort": false,
+            "aaSorting": [],
+            //"pageLength": 50,
+            "language": {
+                "decimal": "",
+                "emptyTable": "Sem dados disponíveis",
+                "info": "Mostrando do começo até o fim de todos os registos",
+                "infoEmpty": "Mostrando de 0 até 0 de 0 registos",
+                "infoFiltered": "(filtrado de MAX registos no total)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "Mostrar MENU registos",
+                "loadingRecords": "A carregar dados...",
+                "processing": "A processar...",
+                "search": "Procurar:",
+                "zeroRecords": "Não foram encontrados resultados",
+                "paginate": {
+                    "first": "Primeiro",
+                    "last": "Último",
+                    "next": "Seguinte",
+                    "previous": "Anterior"
+                },
+                "aria": {
+                    "sortAscending": ": ordem crescente",
+                    "sortDescending": ": ordem decrescente"
+                }
+            }
+        });
+    });
+</script>
+{% endblock%}
 {% endblock%}
 

@@ -1,0 +1,57 @@
+{% extends 'pages/base.html' %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}" >
+{% endblock %}
+
+{% block title %}
+<title>Login</title>
+{% endblock%}
+
+{% block content %}
+    <div class="m-auto mb w-75 p-2 rounded-4">
+        <div class="m-2">
+            <h3>Meu Dados Pessoais</h3>
+            <p>Atualize as informações do seu perfil</p>
+        </div>
+        
+        <hr>
+    
+        <form class="m-2" method="POST" action="">
+    
+            {% csrf_token %}
+    
+            <div class="row">
+                {{ form|crispy }}
+            </div>
+    
+            <button type="submit" class="btn btn-primary" >Entrar</button>
+        </form>
+       </div>
+{% block scripts %}
+<script src="{% static 'js/jquery.mask.min.js' %}"></script>
+<script>
+
+    $(document).ready(function(){
+        $("#id_cpf").mask("000.000.000-00");
+
+        var SPMaskBehavior = function (val) {
+            return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
+          },
+          spOptions = {
+            onKeyPress: function(val, e, field, options) {
+                field.mask(SPMaskBehavior.apply({}, arguments), options);
+              }
+          };
+          
+          $('#id_phone').mask(SPMaskBehavior, spOptions);
+    });
+
+</script>
+{% endblock %}
+{% endblock%}
+

@@ -19,6 +19,8 @@
 
     <script src="https://kit.fontawesome.com/6a5dd2730c.js"></script>
 
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.13.2/datatables.min.css"/>
+ 
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/logo.png' %}">
     
 </head>
@@ -62,7 +64,7 @@
                 <i class="fa-solid fa-circle-user"></i> {{request.user}}
             </a>
             <ul class="dropdown-menu bg-success" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item text-light fw-bold" href="#">Meus dados</a></li>
+              <li><a class="dropdown-item text-light fw-bold" href="{% url 'edit-profile' %}">Meus dados</a></li>
               <li><a class="dropdown-item text-light fw-bold" href="#">Alterar Senha</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item text-light fw-bold" href="{% url 'logout' %}"><i class="fa-solid fa-right-from-bracket"></i> Sair</a></li>
@@ -89,5 +91,11 @@
   {% endblock %}
 
 </div>
+
+<script src="{% static 'js/jquery-3.6.3.min.js' %}"> </script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.13.2/datatables.min.js"></script>
+{% block scripts %}
+
+{% endblock %}
 </body>
 </html>

@@ -16,38 +16,73 @@
 
     <div class="table-responsive">
 
-        <table class="table table-striped">
-            <th>
-                Nome
-            </th>
-            <th>
-                Descrição
-            </th>
-            <th>
-                Opções
-            </th>
+        <table class="table table-striped"  id="table-list">
+            <thead>
+                <th>
+                    Nome
+                </th>
+                <th>
+                    Descrição
+                </th>
+                <th>
+                    Opções
+                </th>
+            </thead>
         
-            {% for field in object_list %}
+            <tbody>
+                {% for field in object_list %}
 
-            <tr>
-               <td>
-                    {{field.name}}
-               </td>
-               <td>
-                    {{ field.description}}
-               </td>
-               <td>
-                    <a href="{% url 'edit-field' field.pk %}" class="btn btn-warning"> <i class="fa-solid fa-pen-to-square"></i></a>
-                    <a href="{% url 'delete-field' field.pk %}" class="btn btn-danger"> <i class="fa-solid fa-trash"></i> </a>
-               </td>
-            </tr>
-    
-            {% empty %}
-            <tr>
-                <td colspan="3"> Não há nenhum registro até o momento </td>
-            </tr>
-            {% endfor %}
+                <tr>
+                   <td>
+                        {{field.name}}
+                   </td>
+                   <td>
+                        {{ field.description}}
+                   </td>
+                   <td>
+                        <a href="{% url 'edit-field' field.pk %}" class="btn btn-warning"> <i class="fa-solid fa-pen-to-square"></i></a>
+                        <a href="{% url 'delete-field' field.pk %}" class="btn btn-danger"> <i class="fa-solid fa-trash"></i> </a>
+                   </td>
+                </tr>        
+                {% endfor %}
+            </tbody>
         </table> 
     </div>
+    {% block scripts %}
+    <script>
+        $(document).ready(function(){
+            $('#table-list').DataTable({
+                'pageLength': 10,
+                responsive: true,
+                // "bSort": false,
+                "aaSorting": [],
+                "language": {
+                    "decimal": "",
+                    "emptyTable": "Sem dados disponíveis",
+                    "info": "Mostrando do começo até o fim de todos os registos",
+                    "infoEmpty": "Mostrando de 0 até 0 de 0 registos",
+                    "infoFiltered": "(filtrado de MAX registos no total)",
+                    "infoPostFix": "",
+                    "thousands": ",",
+                    "lengthMenu": "Mostrar _MENU_ registos",
+                    "loadingRecords": "A carregar dados...",
+                    "processing": "A processar...",
+                    "search": "Procurar:",
+                    "zeroRecords": "Não foram encontrados resultados",
+                    "paginate": {
+                        "first": "Primeiro",
+                        "last": "Último",
+                        "next": "Seguinte",
+                        "previous": "Anterior"
+                    },
+                    "aria": {
+                        "sortAscending": ": ordem crescente",
+                        "sortDescending": ": ordem decrescente"
+                    }
+                }
+            });
+        });
+    </script>
+    {% endblock%}
 {% endblock%}
 

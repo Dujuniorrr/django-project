@@ -65,6 +65,12 @@ class ActivityUpdate(LoginRequiredMixin, UpdateView):
     def get_object(self, queryset=None):
         self.object = get_object_or_404(Activity, pk = self.kwargs['pk'], user = self.request.user)
         return self.object
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['header'] = 'Cadastro de Atividades'
+        context['exist_file'] = True
+        return context
     
 
 class FieldDelete(LoginRequiredMixin, DeleteView):

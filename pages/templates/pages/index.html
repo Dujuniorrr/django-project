@@ -8,6 +8,13 @@
 {% block content %}
 <div class="p-5">
     <h3>Página Inical</h3>
+    {% if user.is_authenticated %}
+        {%if user.profile%}
+        <p>Bem vindo ao sistema, {{user.profile.complet_name}}.</p>
+        {%else%}
+        <p>Você precisa completar seu cadastro. Acesse <a href="{% url 'edit-profile' %}">meus dados</a> para finalizar.</p>
+        {% endif %}
+    {% endif %}
 </div>
 {% endblock%}
 
